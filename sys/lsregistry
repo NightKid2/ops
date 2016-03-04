@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+set -e
+REGISTRY=192.168.1.33:5000
+rpm -q jq &>/dev/null || yum -y install jq || exit 2
+curl -s $REGISTRY/v1/search |jq . |awk '/name/{print $2}' |sed 's/"//g' |sed 's/library/192.168.1.33:5000/g'
