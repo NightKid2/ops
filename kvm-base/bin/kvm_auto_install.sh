@@ -1,8 +1,9 @@
 #!/bin/bash
-#
+# 该脚本用于初始化安装libvirt环境，qemu，guestfish等管理工具。
+# 需要依赖于一个存储系统镜像模板的下载地址 BASE_IMG。
 set -e
 KVM_IMG_DIR=/data/kvm_img
-BASE_IMG=http://download.gs.9188.com/iso/base-img.tar.gz
+BASE_IMG=
 LOCAL_INTERFACE=`ls /etc/sysconfig/network-scripts/ |grep ifcfg-e |head -1  |sed s/ifcfg-//g`
 
 lsmod | grep kvm &>/dev/null && lsmod |grep -E '(kvm_intel|kvm_amd)' &>/dev/null

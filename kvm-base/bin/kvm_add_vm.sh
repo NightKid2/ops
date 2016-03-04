@@ -1,5 +1,6 @@
 #!/bin/bash
-#
+# 该脚本用于自动分配ip地址，并创建kvm虚拟机。
+# 分配IP地址，依赖于nmap扫描局域网端，并从中选取未使用IP地址。
 set -e
 SYS_KVMIMG_DIR=/data/kvm_img
 SYS_REMOTE_IMGURL=http://download.gs.9188.com/iso/Base-Img.tar.gz
